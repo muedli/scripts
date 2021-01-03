@@ -8,7 +8,7 @@ open /Applications/Slack.app
 open /Applications/IntelliJ\ IDEA.app
 open /Applications/iTerm.app
 
-# Update repos and navigate to Rosetta's directory.
+# Update PhET repos.
 cd ~/Documents/repositories/phet/
 ./perennial/bin/pull-all.sh
 ./perennial/bin/clone-all-missing-repos.sh
