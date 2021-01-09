@@ -1,3 +1,3 @@
 # Scripts
 
-For various scripts.
+Will I ever use these scripts? Mayhaps. Mayhaps.
