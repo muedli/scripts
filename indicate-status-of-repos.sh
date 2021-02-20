@@ -33,7 +33,7 @@ find_repos() {
 			fi
 
 			# Check subdirectories for Git repos.
-			check_status $FILE
+			find_repos $FILE
 		fi
 	done
 }
