@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO: If you have time, you could try using the short format.
+# https://git-scm.com/docs/git-status#_short_format
+
 : '
 This script is meant to be run in a directory that contains Git repos. It 
 finds Git repos recursively and prints a message that indicates the status of
@@ -38,30 +41,21 @@ indicate_status() {
 	# Set boolean for if repos are good.
 	GOOD=1	
 
-	# Check for modified files.
-	if [ $(git status | grep -c "modified") -ne 0 ]
-	then
-		GOOD=0
-		echo -en "\033[0;31m"
-		echo ":( There exist modified files."
-		echo -en "\033[0m"
-	fi
-
 	# Check for untracked files.
 	if [ $(git status | grep -c "Untracked") -ne 0 ]
 	then
 		GOOD=0
 		echo -en "\033[0;31m"
-		echo ":( There exist untracked files."
+		echo ":( You have untracked file(s)."
 		echo -en "\033[0m"
 	fi
-
+	
 	# Check for changes that haven't been staged.
 	if [ $(git status | grep -c "Changes not staged") -ne 0 ]
 	then
 		GOOD=0
 		echo -en "\033[0;31m"
-		echo ":( You have unstaged changes."
+		echo ":( You have unstaged change(s)."
 		echo -en "\033[0m"
 	fi
 
@@ -70,7 +64,7 @@ indicate_status() {
 	then
 		GOOD=0
 		echo -en "\033[0;31m"
-		echo ":( You have uncommitted changes."
+		echo ":( You have uncommitted change(s)."
 		echo -en "\033[0m"
 	fi
 
@@ -79,10 +73,11 @@ indicate_status() {
 	then
 		GOOD=0
 		echo -en "\033[0;31m"
-		echo ":( You have an unpushed commit."
+		echo ":( You have unpushed changes(s)."
 		echo -en "\033[0m"
 	fi
 
+	# If none of the above conditions are met, we're good to go.
 	if [ $GOOD -eq 1 ]
 	then
 		echo -en "\033[0;32m"
