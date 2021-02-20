@@ -9,7 +9,7 @@ finds Git repos recursively and prints a message that indicates the status of
 each repo it finds.
 '
 
-check_status() {
+find_repos() {
 	
 	# The first argument to the function is the directory. 
 	DIR=$1
@@ -100,8 +100,8 @@ fi
 # For counting number of repos checked.
 NUM_REPOS=$(( 0 ))
 
-# Call the function!
-check_status $DIR
+# Find repos and indicate their status!
+find_repos $DIR
 
-# Print number of repos checked.
-echo "${NUM_REPOS} repos checked."
+# Print number of repos.
+echo "${NUM_REPOS} repos."
