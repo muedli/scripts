@@ -17,9 +17,11 @@ check_status() {
 	# Loop over each file in the directory.
 	for FILE in $DIR/*
 	do
+
 		# If the file is a directory...
 		if [ -d $FILE ]
 		then
+
 			# If the directory is a Git repo...
 			if [ -d $FILE/.git ]
 			then
