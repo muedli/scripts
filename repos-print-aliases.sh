@@ -44,5 +44,4 @@ fi
 REPO_INDEX=$(( 0 ))
 
 # Print aliases for all Git repos!
-echo "Add the following to your .bash_aliases or .zshrc..."
 print_aliases $DIR

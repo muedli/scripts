@@ -25,8 +25,8 @@ find_repos() {
 			# If the directory is a Git repo...
 			if [ -d $FILE/.git ]
 			then
-				(( NUM_REPOS++ ))
-				echo $FILE
+				(( REPO_INDEX++ ))
+				echo "$REPO_INDEX - $FILE"
 				cd $FILE
 				indicate_status $FILE
 				cd ..
@@ -98,10 +98,7 @@ then
 fi
 
 # For counting number of repos checked.
-NUM_REPOS=$(( 0 ))
+REPO_INDEX=$(( 0 ))
 
 # Find repos and indicate their status!
 find_repos $DIR
-
-# Print number of repos.
-echo "${NUM_REPOS} repos."

@@ -21,6 +21,9 @@ auto_update() {
             # If the directory is a Git repo...
             if [ -d $FILE/.git ]
             then
+                echo -en "\033[0;35m"
+                echo "Updating $FILE via script."
+                echo -en "\033[0m"
                 cd $FILE
                 git add -A
                 git commit -m "Updated via script."
@@ -40,7 +43,7 @@ DIR=$1
 # If no directory has been supplied, use working directory.
 if [ -z $DIR ]
 then
-	DIR="`pwd`"
+    DIR="`pwd`"
 fi
 
 # Auto-update Git repos!
