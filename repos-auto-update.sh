@@ -6,32 +6,32 @@ finds Git repos recursively and adds, commits, and pushes changes in them.
 '
 
 auto_update() {
-	
-	# The first argument to the function is the directory. 
-	DIR=$1
 
-	# Loop over each file in the directory.
-	for FILE in $DIR/*
-	do
+    # The first argument to the function is the directory.
+    DIR=$1
 
-		# If the file is a directory...
-		if [ -d $FILE ]
-		then
+    # Loop over each file in the directory.
+    for FILE in $DIR/*
+    do
 
-			# If the directory is a Git repo...
-			if [ -d $FILE/.git ]
-			then
-        cd $FILE
-        git add -A
-        git commit -m "Updated via script."
-        git push
-        cd ../
-			fi
+        # If the file is a directory...
+        if [ -d $FILE ]
+        then
 
-			# Auto-update repos in subdirectories.
-			auto_update $FILE
-		fi
-	done
+            # If the directory is a Git repo...
+            if [ -d $FILE/.git ]
+            then
+                cd $FILE
+                git add -A
+                git commit -m "Updated via script."
+                git push
+                cd ../
+            fi
+
+            # Auto-update repos in subdirectories.
+            auto_update $FILE
+        fi
+    done
 }
 
 # Get the directory supplied to the script.
