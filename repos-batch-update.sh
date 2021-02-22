@@ -22,7 +22,7 @@ batch_update() {
             if [ -d $FILE/.git ]
             then
                 echo -en "\033[0;35m"
-                echo "Updating ${FILE} as part of lazy batch update."
+                echo "Attempting to update ${FILE}."
                 echo -en "\033[0m"
                 cd $FILE
                 git add -A
