@@ -97,7 +97,7 @@ then
 	DIR="`pwd`"
 fi
 
-# For counting number of repos checked.
+# For indexing repos.
 REPO_INDEX=$(( 0 ))
 
 # Find repos and indicate their status!

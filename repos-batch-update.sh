@@ -21,8 +21,9 @@ batch_update() {
             # If the directory is a Git repo...
             if [ -d $FILE/.git ]
             then
+                (( REPO_INDEX++ ))
                 echo -en "\033[0;35m"
-                echo "Attempting to update ${FILE}."
+                echo "$REPO_INDEX - Attempting to update ${FILE}."
                 echo -en "\033[0m"
                 cd $FILE
                 git add -A
@@ -45,6 +46,9 @@ if [ -z $DIR ]
 then
     DIR="`pwd`"
 fi
+
+# For indexing repos.
+REPO_INDEX=$(( 0 ))
 
 # Auto-update Git repos!
 batch_update $DIR
