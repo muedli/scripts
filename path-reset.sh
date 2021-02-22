@@ -11,5 +11,3 @@ You have to change the config file depending on the shell you use.
 echo "Old PATH: $PATH"
 PATH=$(getconf PATH)
 echo "Reset PATH: $PATH"
-source ~/.zshrc
-echo "New PATH: $PATH"
