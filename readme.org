@@ -1,3 +1,4 @@
 * Scripts
-
-Will I ever use these scripts? Mayhaps. Mayhaps.
+1. Copy scripts to =~/bin=.
+2. Rename scripts to your liking. You can omit =.sh=.
+3. Add =~/bin= to =PATH=.
